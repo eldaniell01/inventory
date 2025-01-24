@@ -49,7 +49,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideLeft</enum>
@@ -77,6 +77,259 @@
      <attribute name="title">
       <string>FACTURAR</string>
      </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>COMPRAS</string>
+     </attribute>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>741</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(37, 54, 89);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QComboBox" name="cbProveedor_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>451</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>FiraCode Nerd Font</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 0, 255);
+border-radius: 2px;
+border: 1px solid #000;</string>
+       </property>
+       <property name="placeholderText">
+        <string>SELECCIONE EL PROVEEDOR</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dFecha">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>10</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>FiraCode Nerd Font</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>18</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2024</year>
+         <month>12</month>
+         <day>31</day>
+        </datetime>
+       </property>
+       <property name="displayFormat">
+        <string>dd/MM/yyyy</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+       <property name="timeSpec">
+        <enum>Qt::LocalTime</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>80</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>FiraCode Nerd Font</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>ESTADO</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rbContado">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>120</y>
+         <width>96</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>FiraCode Nerd Font</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(218, 218, 218);
+</string>
+       </property>
+       <property name="text">
+        <string>CONTADO</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="rbCredito">
+       <property name="geometry">
+        <rect>
+         <x>620</x>
+         <y>120</y>
+         <width>96</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>FiraCode Nerd Font</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(218, 218, 218);
+</string>
+       </property>
+       <property name="text">
+        <string>CREDITO</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnList">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>FiraCode Nerd Font</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(180, 190, 201);
+color: rgb(62, 62, 62);</string>
+       </property>
+       <property name="text">
+        <string>LISTAR</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="btnShop">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>470</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>FiraCode Nerd Font</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(37, 54, 89);
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>REGISTRAR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnClean3">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>470</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>FiraCode Nerd Font</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(37, 54, 89);
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>LIMPIAR TABLA</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tShop">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>741</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>FiraCode Nerd Font</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -306,11 +559,15 @@ border: 1px solid #000;</string>
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255);
+selection-background-color: rgb(0, 0, 255);
 border-radius: 2px;
 border: 1px solid #000;</string>
        </property>
