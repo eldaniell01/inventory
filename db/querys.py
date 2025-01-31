@@ -21,11 +21,11 @@ class Query:
         self.db.execute_query(query, values)
         self.db.close_connection()
         
-    def insertProducto(self, cod, nombre, stock, preciov, medida, marca):
+    def insertProducto(self, cod, nombre, stock, preciov, medida, marca, idprove):
         query = """
-                    INSER INTO productos(codigo, nombre, stock, precio_v, unidad_m, marca) VALUES(%s, %s, %s, %s, %s, %s)
+                    INSER INTO productos(codigo, nombre, stock, precio_v, unidad_m, marca) VALUES(%s, %s, %s, %s, %s, (SELECT idmarca FROM marca WHERE nombre=%s and idproveedores=%s LIMIT 1))
                 """
-        values = (cod, nombre, stock, preciov, medida, marca)
+        values = (cod, nombre, stock, preciov, medida, marca, idprove)
         self.db.execute_query(query, values)
         self.db.close_connection()
         

@@ -16,6 +16,7 @@ class Home(QMainWindow):
         self.main.btnClean.clicked.connect(self.cleanTables)
         self.main.btnClean2.clicked.connect(self.cleanTables)
         self.main.btnList.clicked.connect(self.openExcel)
+        self.main.btnShop.clicked.connect(self.registerProduct)
         self.showTProveedor()
         self.showTMarca()
         self.showTcompra()
@@ -63,8 +64,8 @@ class Home(QMainWindow):
         self.main.tMarca.setStyleSheet(header_style)
         
     def showTcompra(self):
-        columns = ['CANTIDAD', 'CODIGO', 'DESCRIPCION', 'MEDIDA', 'PRECIO C.', 'PRECIO V.', 'DESCUENTO', 'SUBTOTAL' ]
-        self.main.tShop.setFont(QFont("FiraCode Nerd Font", 12))
+        columns = ['CANTIDAD', 'CODIGO', 'DESCRIPCION', 'MARCA','MEDIDA', 'PRECIO C.', 'PRECIO V.', 'DESCUENTO', 'SUBTOTAL' ]
+        self.main.tShop.setFont(QFont("FiraCode Nerd Font", 11))
         self.main.tShop.setColumnCount(len(columns))
         for column, name in enumerate(columns):
             self.main.tShop.setHorizontalHeaderItem(column, QTableWidgetItem(name))
@@ -89,7 +90,35 @@ class Home(QMainWindow):
         for id, data in result:
             self.main.cbProveedor.addItem(str(data))
             self.main.cbProveedor_2.addItem(str(data))
+    
+    def registerDetail(self):
+        query = Query()
+        fecha = self.main.dFecha.date().toString("yyyy-MM-dd")
+        idProveedor = self.main.cbProveedor_2.currentIndex()+1
+        try:
+            if idProveedor:
+                query.insertEncabezadoCompra(fecha, 0, 100, 1, idProveedor)
+            print('error')
+        except Exception as e:
+            print('error '+e)
+    
+    def registerProduct(self):
+        query = Query()
+        try: 
+            idProveedor = self.main.cbProveedor_2.currentIndex()+1
+            for row in range(self.main.tShop.rowCount()):   
+                cod = self.main.tShop.item(row, 1)
+                name = self.main.tShop.item(row, 2)
+                idMarca = self.main.tShop.item(row, 3)
+                unidad_m = self.main.tShop.item(row, 4)
+                precio_v = self.main.tShop.item(row, 6)
+               
+                
+                print(idProveedor, cod.text(), name.text(), idMarca.text(), unidad_m.text(), float(precio_v.text()))
+        except Exception as e:
+            print(e)
         
+    
     def loadExcel(self,path):
         workbook = load_workbook(filename=path)
         sheet = workbook.active
@@ -100,11 +129,12 @@ class Home(QMainWindow):
             self.main.tShop.setItem(row_index, 0, QTableWidgetItem(str(row[0])))#cantidad
             self.main.tShop.setItem(row_index, 1, QTableWidgetItem(str(row[1]).upper()))#codigo
             self.main.tShop.setItem(row_index, 2, QTableWidgetItem(str(row[2]).upper()))#nombre o descripcion
-            self.main.tShop.setItem(row_index, 3, QTableWidgetItem(str(row[3]).upper()))#unidad de medida
-            self.main.tShop.setItem(row_index, 4, QTableWidgetItem(str(row[4])))#precio de compra
-            self.main.tShop.setItem(row_index, 5, QTableWidgetItem(str(row[5])))#precio de venta          
-            self.main.tShop.setItem(row_index, 6, QTableWidgetItem(str(row[6])))#precio de descuento
-            self.main.tShop.setItem(row_index, 7, QTableWidgetItem(str(row[7])))#subtotal
+            self.main.tShop.setItem(row_index, 3, QTableWidgetItem(str(row[3]).upper()))#marca
+            self.main.tShop.setItem(row_index, 4, QTableWidgetItem(str(row[4]).upper()))#unidad de medida
+            self.main.tShop.setItem(row_index, 5, QTableWidgetItem(str(row[5])))#precio de compra
+            self.main.tShop.setItem(row_index, 6, QTableWidgetItem(str(row[6])))#precio de venta          
+            self.main.tShop.setItem(row_index, 7, QTableWidgetItem(str(row[7])))#precio de descuento
+            self.main.tShop.setItem(row_index, 8, QTableWidgetItem(str(row[8])))#subtotal
             
     def openExcel(self):
         folder = QFileDialog()
@@ -134,6 +164,8 @@ class Home(QMainWindow):
                 self.main.tProveedor.setItem(row, 1, QTableWidgetItem(self.nombre))
                 self.main.txtNIT.setText("")
                 self.main.txtProveedor.setText("")
+                self.main.cbProveedor.clear()
+                self.showProveedor()
     
     def registerMarca(self):
         query = Query()

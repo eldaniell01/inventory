@@ -72,7 +72,7 @@
     <widget class="QWidget" name="tab">
      <attribute name="icon">
       <iconset theme="accessories-dictionary">
-       <normaloff>.</normaloff>.</iconset>
+       <normaloff>../../../.designer/backup</normaloff>../../../.designer/backup</iconset>
      </attribute>
      <attribute name="title">
       <string>FACTURAR</string>
@@ -320,7 +320,7 @@ color: rgb(255, 255, 255);</string>
       <property name="font">
        <font>
         <family>FiraCode Nerd Font</family>
-        <pointsize>12</pointsize>
+        <pointsize>11</pointsize>
        </font>
       </property>
       <property name="styleSheet">
