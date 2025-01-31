@@ -112,9 +112,7 @@ class Home(QMainWindow):
                 idMarca = self.main.tShop.item(row, 3)
                 unidad_m = self.main.tShop.item(row, 4)
                 precio_v = self.main.tShop.item(row, 6)
-               
-                
-                print(idProveedor, cod.text(), name.text(), idMarca.text(), unidad_m.text(), float(precio_v.text()))
+                query.insertProducto(cod.text(), name.text(), 0, float(precio_v.text()), unidad_m.text(), idMarca.text(), idProveedor)
         except Exception as e:
             print(e)
         
